@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Koulen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+// Colors
+$color-white: #fff;
+$color-black: #000;
+$color-red: #fb554c;
+$color-gray-dark: #4e4f51;
+$color-accent: #8dbab5;
+
+// Fonts
+$font-main: "Koulen", sans-serif;
+$font-secondary: "Roboto", sans-serif;
+
+// Media breakpoints
+$breakpoint-lg: 1000px;
+$breakpoint-md: 715px;
+$breakpoint-sm: 650px;
+$breakpoint-xs: 500px;
+
+// Body styles
+body {
+  background: $color-white;
+  font-family: $font-main;
+  font-weight: 400;
+  font-style: normal;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    padding: 0 30px;
+  }
+}
+
+// Mixin for button styling
+@mixin buttonStyle($bgcolor, $fontcolor, $width: auto, $height: auto) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $width;
+  height: $height;
+  background-color: $bgcolor;
+  border: none;
+  border-radius: 100px;
+  color: $fontcolor;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+// General text styles
+nav,
+p,
+button {
+  font-family: $font-secondary;
+  font-weight: 400;
+}
+
+// Header styles
+header {
+  margin: 10px 0 30px;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+
+    img {
+      padding: 8px 32px;
+
+      @media screen and (max-width: $breakpoint-lg) {
+        padding: 0;
+      }
+    }
+
+    ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+
+      li {
+        padding: 8px 16px;
+
+        a {
+          color: $color-black;
+        }
+      }
+
+      button {
+        @include buttonStyle($color-black, $color-white, 145px, 40px);
+
+        span {
+          font-size: 20px;
+          margin-right: 8px;
+        }
+      }
+
+      @media screen and (max-width: $breakpoint-lg) {
+        display: none;
+      }
+    }
+
+    .menu-mobile {
+      @include buttonStyle($color-black, $color-white, 40px, 40px);
+
+      @media screen and (min-width: $breakpoint-lg) {
+        display: none;
+      }
+    }
+  }
+
+  .intro-title {
+    padding: 25px 32px;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    align-items: last baseline;
+
+    h1 {
+      font-size: 96px;
+
+      span {
+        color: $color-accent;
+      }
+
+      @media screen and (max-width: $breakpoint-sm) {
+        font-size: 15vw;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      color: $color-gray-dark;
+
+      @media screen and (max-width: $breakpoint-sm) {
+        font-size: 13px;
+      }
+    }
+
+    @media screen and (max-width: $breakpoint-lg) {
+      padding: 25px 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  .intro-content {
+    background: url("/images/featured.png") no-repeat center/cover;
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px;
+    width: 100%;
+    height: 500px;
+    border-radius: 32px;
+    position: relative;
+
+    .caption {
+      position: absolute;
+      top: -20%;
+      right: 35%;
+      width: 180px;
+      height: 180px;
+      background-color: $color-red;
+      color: $color-white;
+      font-size: 32px;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+
+      @media screen and (max-width: $breakpoint-lg) {
+        top: -5%;
+        right: -3%;
+        width: 80px;
+        height: 80px;
+        font-size: 20px;
+      }
+    }
+
+    .speaker-block {
+      background-color: $color-white;
+      padding: 32px;
+      border-radius: 32px;
+      width: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+
+      .title {
+        h3 {
+          font-size: 40px;
+          font-weight: 400;
+        }
+
+        h5 {
+          font-size: 20px;
+          font-weight: 400;
+          margin-top: 18px;
+          color: $color-red;
+        }
+      }
+
+      .speaker {
+        img {
+          width: 48px;
+          height: 48px;
+          border-radius: 10px;
+          margin-bottom: 16px;
+        }
+
+        h5 {
+          color: #323334;
+        }
+
+        p {
+          font-size: 14px;
+          color: $color-gray-dark;
+        }
+      }
+
+      i {
+        position: absolute;
+        right: 35px;
+        bottom: 35px;
+      }
+
+      @media screen and (max-width: $breakpoint-xs) {
+        width: 100%;
+      }
+    }
+
+    .options {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+
+      button {
+        @include buttonStyle($color-white, $color-black);
+        padding: 8px 16px;
+        gap: 10px;
+
+        span {
+          color: $color-red;
+        }
+      }
+
+      @media screen and (max-width: $breakpoint-lg) {
+        flex-direction: column;
+        justify-content: end;
+      }
+
+      @media screen and (max-width: $breakpoint-md) {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: $breakpoint-xs) {
+      padding: 15px;
+    }
+  }
+}
